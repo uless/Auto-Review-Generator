@@ -14,6 +14,9 @@ from pdfminer.layout import LTTextBoxHorizontal, LAParams
 from pdfminer.pdfinterp import PDFTextExtractionNotAllowed
 import re
 
+#垃圾windows天天删我脚本是吧
+#谢谢你原作者谢谢茄子
+
 # 去除警告
 import logging 
 logging.Logger.propagate = False 
@@ -149,10 +152,10 @@ def parse(DataIO, save_path, appKey, appSecret):
                                     # 去掉关键词
                                     oringin_result = re.split('(K|k)(eyword|EYWORD)[sS]?',result)[0]
                                     # 翻译并转换人称
-                                    trans_result = fanyi.translate(oringin_result).replace('我们', '他们')
+                                    #trans_result = fanyi.translate(oringin_result).replace('我们', '他们')
                                     # print(result)
                                     # 组织语言写入TXT
-                                    write_cont = author + '等人提出：' + trans_result + '\n'
+                                    write_cont = author + '等人提出：' + oringin_result + '\n'
                                     ab_count += 1
                                     f.write(write_cont)
                                 # 匹配Abstract和摘要内容位于同一行的情况
@@ -164,10 +167,10 @@ def parse(DataIO, save_path, appKey, appSecret):
                                         # 去掉关键词
                                         oringin_result = re.split('(K|k)(eyword|EYWORD)[sS]?',oringin_result)[0]
                                         # 翻译并转换人称
-                                        trans_result = fanyi.translate(oringin_result).replace('我们', '他们')
+                                       # trans_result = fanyi.translate(oringin_result).replace('我们', '他们')
                                         # print(result)
                                         # 组织语言写入TXT
-                                        write_cont = author + '等人提出：' + trans_result + '\n'
+                                        write_cont = author + '等人提出：' + oringin_result + '\n'
                                         ab_count += 1
                                         f.write(write_cont)
                                 # 匹配结论
