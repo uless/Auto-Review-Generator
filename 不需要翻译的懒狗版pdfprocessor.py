@@ -16,6 +16,7 @@ import re
 
 #垃圾windows天天删我脚本是吧
 #谢谢你原作者谢谢茄子
+#加入了关键词探测，过滤无关论文
 
 # 去除警告
 import logging 
@@ -239,4 +240,5 @@ if __name__ == '__main__':
                     f.write('\n'+'文档读取失败：' + str(e) +'，路径为：' + file_item + '\n')
                 fail_count+=1
 
-    print('共读取pdf文件' + str(success_count+fail_count) + '个，其中成功读取并翻译' + str(success_count) + '个，失败' + str(fail_count) + '个')
+    print('共读取pdf文件' + str(success_count+fail_count) + '个，其中成功读取并翻译' + str(success_count) + '个，失败' + str(fail_count) + '个' +
+         '找到相关文献' + str(relavant_count) + '个，不相关被过滤掉的文件有' + str(irrelavent_count) + '个')
